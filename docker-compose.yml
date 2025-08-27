@@ -1,0 +1,18 @@
+# docker-compose.yml para subir o MySQL
+version: '3.8'
+services:
+  mysql:
+    build: .
+    container_name: mysql-tarefas
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: tarefasdb
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: senha
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
